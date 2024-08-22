@@ -18,8 +18,8 @@
           {% for tag in task.tag.all %}
             {{ tag.name }}{% if not forloop.last %}, {% endif %}
           {% endfor %}
-          <a href="{% url 'task:task-update' task.pk %}">Update</a>
-          <a href="{% url 'task:task-delete' task.pk %}">Delete</a>
+          <a href="{% url 'task:task-update' pk=task.id %}">Update</a>
+          <a href="{% url 'task:task-delete' pk=task.id %}">Delete</a>
           <a href="{% url 'task:task-completion' pk=task.id %}"
              class="btn {% if task.is_completed %}btn-secondary{% else %}btn-success{% endif %} float-right">{{ task.is_completed|yesno:"Undo,Complete" }}</a>
         </p>
